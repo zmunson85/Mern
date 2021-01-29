@@ -1,0 +1,100 @@
+
+(1)
+
+const cars = ['Tesla', 'Mercedes', 'Honda']
+const [ randomCar ] = cars
+const [ ,otherRandomCar ] = cars
+//Predict the output
+console.log(randomCar)
+console.log(otherRandomCar)
+
+// this should out put the first two items in the list, it will pick the first random car then the next because its being told to grab a random car from the list, not in random but from the list named random,
+
+// Tesla
+//Mercedes
+_____________________________________________________________________________________________________________________________________________________________________
+(2)
+
+const employee = {
+    name: 'Elon',
+    age: 47,
+    company: 'Tesla'
+}
+const { name: otherName } = employee;
+//Predict the output
+console.log(name);
+console.log(otherName);
+
+// name is not defined, this will error out, if the console.log was insided the cont employee, you would get a return of Elon.
+_____________________________________________________________________________________________________________________________________________________________________
+
+(3)
+
+const person = {
+    name: 'Phil Smith',
+    age: 47,
+    height: '6 feet'
+}
+const password = '12345';
+const { password: hashedPassword } = person;  
+//Predict the output
+console.log(password);
+console.log(hashedPassword);
+
+
+// the first const password = a string '12345';
+// const{password: hashedPassword} = person; password is not defined as a variable. Password will be defined in above line of code
+
+//the first return statement should be and the second will be Undefinded
+
+//12345
+//Undefinded
+_____________________________________________________________________________________________________________________________________________________________________
+
+(4)
+
+const numbers = [8, 2, 3, 5, 6, 1, 67, 12, 2];
+const [,first] = numbers;                             // const arr/list pasing in- [,first]= numbers------this appears to be the first index acording to the context. 
+const [,,,second] = numbers;
+const [,,,,,,,,third] = numbers;
+//Predict the output
+console.log(first == second);
+console.log(first == third);
+
+//should return
+//false
+//true
+
+//const numbers = []
+//inside that list the numbers  are seperated by a comma
+// so the first console.log will return false because the given array the first object in the list is not equal to the second.
+                                                                        //----------------------Need Help With This--------------------//
+
+
+_____________________________________________________________________________________________________________________________________________________________________
+
+
+(5)
+
+const lastTest = {
+    key: 'value',
+    secondKey: [1, 5, 1, 8, 3, 3]
+}
+const { key } = lastTest;
+const { secondKey } = lastTest;
+const [ ,willThisWork] = secondKey;
+//Predict the output
+console.log(key);                              // the key= value acording to function lastTest
+console.log(secondKey);                   //the seconKey would be the [1,5,1,8,3,3]
+console.log(secondKey[0]);              //this is grabing the index now, grabing secondKey[0] in this case = 1 (GIVEN ARRAY= [1,5,1,8,3,3])
+console.log(willThisWork);               //this should work becasue we are calling a constant variable inside the scope of the function call, by specificly calling the [,] i think this is saying pick from the list, and each index will be a key/value so second key should be 5
+
+
+//this should print out
+// value
+//[1,5,1,8,3,3]
+//1
+//5
+
+_____________________________________________________________________________________________________________________________________________________________________
+

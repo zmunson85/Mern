@@ -1,0 +1,154 @@
+
+(1)
+console.log(hello);                                   
+var hello = 'world'; 
+
+Return Undefinded
+
+var hello = 'world';
+console.log(hello)
+let hello = 'world';
+______________________________________________________________________________________
+(2)
+var needle = 'haystack';
+test();
+function test(){
+    var needle = 'magnet';
+    console.log(needle);
+}
+    
+// this should return magnet
+//  the first var needle = 'haystack';    ___OK____ THIS MEANS NOTHING AT THIS POINT___ (Global scope)
+//  now we see a new line call test ();
+// this is a function call: function test(){
+// we are passing in context in the form of a variable in a localized scope:
+// when we console log needle it will be within  local funciton so the 
+// global variable is not a factor because the function is localized
+
+
+_______________________________________________________________________________________
+    (3)
+var brendan = 'super cool';
+function print(){
+    brendan = 'only okay';
+    console.log(brendan);
+}
+console.log(brendan);
+
+
+// this should return 'super cool' .....
+    // The var brendan is defined as var brendan = 'super cool';
+    // so when its in the that form the scope is going to return the var assigned it cannot be reassigned,
+    //  when the function is run the console.log should return super cool not just okay 
+    // we didnt call the function print so the printed variable is super cool not only okay.
+______________________________________________________________________________________
+
+(4)
+var food = 'chicken';
+console.log(food);
+eat();
+function eat(){
+    food = 'half-chicken';
+    console.log(food);
+    var food = 'gone';
+}
+
+
+// this will return two statments. one from each consloe.log
+//chicken ----statement 1
+//half-chicken-------statement 2
+// the first assignment is chicken to the global varable food, so in line two it will return chicken because it is defined in the scope in line 1
+// there is a function declaration eat();
+inside this funciton there is context food, which is equal string half-chicken
+// the console.log (food) in this case food is localized as half chicken, var food ='gone' is not being logged so nothing will return in relation to that varable.
+
+
+
+______________________________________________________________________________________
+(5)
+mean();
+console.log(food);
+var mean = function() {
+    food = "chicken";
+    console.log(food);
+    var food = "fish";
+    console.log(food);
+}
+console.log(food);
+
+THIS WILL ERROR OUT!
+// this looks like it is trying to make a function call mean() although there is no call for that function
+// console.log(food) wouldnt run becuse food is Undefinded
+// the code needs to be re formated to be a function. there is no way to define the scope in this format. 
+
+______________________________________________________________________________________
+(6)
+console.log(genre);
+var genre = "disco";
+rewind();
+function rewind() {
+    genre = "rock";
+    console.log(genre);
+    var genre = "r&b";
+    console.log(genre);
+}
+console.log(genre);
+
+
+// in the first consloe.log it will be Undefinded because it doesn't have anything to define or compare to in regards to genre var, because nothing is definded for that varable.
+//the var genre = 'disco' is not being recogonized as anything because it isnt being passed in anyplace just a statement.
+// on the other hand the rewind function is passing in the variables so the return will be as defined
+// rock
+// r&b
+//disco
+//each of these variables were defined inside the rewind funciton
+
+
+______________________________________________________________________________________
+(7)
+dojo = "san jose";
+console.log(dojo);
+learn();
+function learn() {
+    dojo = "seattle";
+    console.log(dojo);
+    var dojo = "burbank";
+    console.log(dojo);
+}
+console.log(dojo);
+
+//_____this should return:___________
+
+//san jose
+//seattle
+//burbank
+//san jose
+
+//dojo is defined globally as 'san jose'
+the learn function is called and inside the function there are varables that are defined on the local level also,
+//the first return will be san jose,
+// the second return will be seattle because its inside the function and defined  as 'seattle'
+//the third return is also inside the function using another local variable defined as 'burbank'
+//
+
+______________________________________________________________________________________
+(8)
+console.log(makeDojo("Chicago", 65));
+console.log(makeDojo("Berkeley", 0));
+function makeDojo(name, students){
+    const dojo = {};
+    dojo.name = name;
+    dojo.students = students;
+    if(dojo.students > 50){
+        dojo.hiring = true;
+    }
+    else if(dojo.students <= 0){
+        dojo = "closed for now";
+    }
+    return dojo;
+}
+
+if you run it it will error and explain that make a dojo is not a function.
+
+//if you change const variable you cannot change it, so if you used let in place of const you it would run and return the first console log as a dicti.
+// this will also allow the remaining code to be read, after the error the code stopped and wasnt ever read.
